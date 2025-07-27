@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Application Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #b3ffab, #12fff7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .loan-form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 380px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .loan-form h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .loan-form label {
+      display: block;
+      margin: 12px 0 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .loan-form input,
+    .loan-form select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .loan-form input:focus,
+    .loan-form select:focus {
+      border-color: #4caf50;
+      outline: none;
+      box-shadow: 0 0 5px #4caf50;
+    }
+
+    .loan-form button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .loan-form button:hover {
+      background-color: #388e3c;
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      color: #155724;
+      background-color: #d4edda;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <form class="loan-form" onsubmit="showSuccess(event)">
+    <h2>Loan Application</h2>
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="income">Monthly Income (₹)</label>
+    <input type="number" id="income" name="income" required>
+
+    <label for="occupation">Occupation</label>
+    <input type="text" id="occupation" name="occupation" required>
+
+    <label for="amount">Loan Amount (₹)</label>
+    <input type="number" id="amount" name="amount" required>
+
+    <label for="duration">Loan Duration</label>
+    <select id="duration" name="duration" required>
+      <option value="">-- Select Duration --</option>
+      <option value="1year">1 Year</option>
+      <option value="3year">3 Years</option>
+      <option value="5year">5 Years</option>
+    </select>
+
+    <label for="type">Loan Type</label>
+    <select id="type" name="type">
+      <option value="home">Home Loan</option>
+      <option value="personal">Personal Loan</option>
+      <option value="education">Education Loan</option>
+      <option value="vehicle">Vehicle Loan</option>
+    </select>
+
+    <button type="submit">Apply Now</button>
+
+    <div id="success" class="success-message">
+      ✅ Your loan application has been submitted successfully!
+    </div>
+  </form>
+
+  <script>
+    function showSuccess(event) {
+      event.preventDefault();
+      document.getElementById('success').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
